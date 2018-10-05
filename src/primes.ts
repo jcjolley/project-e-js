@@ -1,6 +1,6 @@
 import { LazySeq } from './LazySeq';
 
-let isPrimeHolder;
+let _isPrime
 
 function* genPrimes() {
   let prime = 2;
@@ -8,7 +8,7 @@ function* genPrimes() {
   while (true) {
     do
       prime += 2
-    while (!isPrimeHolder(prime))
+    while (!_isPrime(prime))
     yield prime;
   }
 }
@@ -19,4 +19,4 @@ export const isPrime = n => {
   const possiblePrimeFactors = primes.takeWhile(x => x <= Math.sqrt(n));
   return n > 1 && possiblePrimeFactors.every(x => n % x !== 0);
 };
-isPrimeHolder = isPrime;
+_isPrime = isPrime;
