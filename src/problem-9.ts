@@ -13,11 +13,10 @@ export const pNine = () => {
 
   const getPythagoreanTripletWithSum = (sum) => {
     for (let a = 1; a < 998; a++) {
-      for (let b = 1; b < 998; b++) {
-        for (let c = 1; c < 998; c++) {
-          if (sumsTo([a, b, c], 1000) && isPythagoreanTriplet(a, b, c)) {
-            return a * b * c;
-          }
+      for (let b = a; b < 998; b++) {
+        let c = 1000 - a - b;
+        if (isPythagoreanTriplet(a, b, c)) {
+          return a * b * c;
         }
       }
     }
@@ -26,5 +25,5 @@ export const pNine = () => {
   const t0 = performance.now()
   const x = getPythagoreanTripletWithSum(100);
   const t1 = performance.now()
-  console.log(`9. Result: ${x} Time: ${t1 - t0}ms`);
+  console.log(`9. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 }
