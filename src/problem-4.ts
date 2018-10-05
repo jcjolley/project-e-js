@@ -23,16 +23,12 @@ export const pFour = () => {
     for (let block = 900; block > 0; block -= 100) {
       for (let x = 999; x >= block; x--) {
         for (let y = 999; y >= block; y--) {
-          if (are2DigitFactors(x, y, n)) {
+          if (x * y === n) {
             return [x, y];
           }
         }
       }
     }
-  }
-
-  const are2DigitFactors = (x, y, n) => {
-    return (n % x === 0 && n % y === 0 && x * y === n)
   }
 
   const findLargestPalindromeWithTwoDigitFactors = (n) => {

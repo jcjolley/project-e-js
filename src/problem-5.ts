@@ -9,10 +9,10 @@ export const pFive = () => {
   }
 
   const findEvenlyDivisibleByOneThroughTwenty = () => {
-    let n = 20;
+    let n = 40;
     let divisors = range(2, 21);
     while (!evenlyDivisibleBy(n, divisors)) {
-      n++;
+      n += 20;
     }
     return n;
   }

@@ -1,4 +1,5 @@
 import { LazySeq } from './LazySeq';
+import { memoize } from 'lodash/fp';
 
 let _isPrime
 
@@ -15,7 +16,7 @@ function* genPrimes() {
 
 export const primes = new LazySeq(genPrimes)
 
-// Testing
+// Tes
 export const isPrime = n => {
   if (primes.has(n)) {
     return true;
@@ -33,4 +34,5 @@ export const isPrime = n => {
 
   return n > 1;
 };
+
 _isPrime = isPrime;

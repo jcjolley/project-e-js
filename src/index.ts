@@ -9,7 +9,7 @@ import { pSeven } from './problem-7';
 import { pEight } from './problem-8';
 import { pNine } from './problem-9';
 import { pTen } from './problem-10';
-/*
+
 pOne();
 pTwo();
 pThree();
@@ -18,7 +18,6 @@ pFive();
 pSix();
 pSeven();
 pEight();
-*/
 pNine();
 pTen();
 pEleven();
