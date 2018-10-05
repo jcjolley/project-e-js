@@ -4,14 +4,12 @@ let isPrimeHolder;
 
 function* genPrimes() {
   let prime = 2;
-  yield prime;
-  prime++;
+  yield prime--;
   while (true) {
-    while (!isPrimeHolder(prime)) {
-      prime += 2;
-    }
+    do
+      prime += 2
+    while (!isPrimeHolder(prime))
     yield prime;
-    prime += 2;
   }
 }
 
