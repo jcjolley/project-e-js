@@ -66,8 +66,8 @@ export const pEleven = () => {
 
   const t0 = performance.now();
   const x = pipe([
+    map((x: number[]) => aperture(4, x)),
     flatten,
-    x => aperture(4, x),
     map(multiply),
     max
   ])(grid.concat(transpose(grid)).concat(ascendingDiagonals(grid)).concat(descendingDiagonals(grid)))
