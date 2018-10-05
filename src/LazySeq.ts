@@ -2,10 +2,12 @@ export class LazySeq {
   private generator;
   private cache;
   private done;
+  private set;
 
   constructor(generator) {
     this.generator = generator();
     this.cache = [];
+    this.set = new Set<any>();
     this.done = false;
   }
 
@@ -16,6 +18,7 @@ export class LazySeq {
       return;
     }
     this.cache.push(value);
+    this.set.add(value)
   }
 
   nth = (n: number) => {
@@ -41,5 +44,9 @@ export class LazySeq {
       val = this.nth(++i)
     }
     return res;
+  }
+
+  has = (x: any) => {
+    return this.set.has(x);
   }
 }
