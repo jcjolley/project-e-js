@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import { round } from './round';
 export const pTwo = () => {
 
   function* genFib() {
@@ -28,5 +29,5 @@ export const pTwo = () => {
     .reduce((acc, x) => acc + x);
   const t1 = performance.now();
 
-  console.log(`2. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`2. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 }

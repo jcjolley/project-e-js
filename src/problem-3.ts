@@ -1,5 +1,5 @@
 import { performance } from 'perf_hooks';
-import { LazySeq } from './LazySeq';
+import { round } from './round';
 import { last } from 'lodash/fp';
 import { primes } from './primes';
 
@@ -13,5 +13,5 @@ export const pThree = () => {
   const x = getLargestPrimeFactor(600851475143);
   const t1 = performance.now();
 
-  console.log(`3. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`3. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 }

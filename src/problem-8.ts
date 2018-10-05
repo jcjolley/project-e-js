@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import { round } from './round';
 import { pipe, slice, map, toNumber, reduce, max } from "lodash/fp";
 
 export const pEight = () => {
@@ -25,5 +26,5 @@ export const pEight = () => {
   const x = largestProductInSeries(13, theSeries)
   const t1 = performance.now()
 
-  console.log(`8. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`8. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 }

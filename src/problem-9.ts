@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import { round } from './round';
 import { sum } from "lodash/fp";
 
 export const pNine = () => {
@@ -25,5 +26,5 @@ export const pNine = () => {
   const t0 = performance.now()
   const x = getPythagoreanTripletWithSum(100);
   const t1 = performance.now()
-  console.log(`9. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`9. Result: ${x} Time: ${t1 - t0}ms`);
 }

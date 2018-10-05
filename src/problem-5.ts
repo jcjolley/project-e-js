@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import { round } from './round';
 import { range } from "lodash/fp";
 
 export const pFive = () => {
@@ -20,6 +21,6 @@ export const pFive = () => {
   const x = findEvenlyDivisibleByOneThroughTwenty()
   const t1 = performance.now()
 
-  console.log(`5. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`5. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 
 }

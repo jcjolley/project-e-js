@@ -1,5 +1,6 @@
 import { performance } from 'perf_hooks';
 import { range } from 'lodash/fp';
+import { round } from './round';
 
 export const pOne = () => {
   const t0 = performance.now();
@@ -8,6 +9,6 @@ export const pOne = () => {
     .reduce((acc, x) => acc + x);
   const t1 = performance.now();
 
-  console.log(`1. Result: ${x}, Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`1. Result: ${x}, Time: ${round(t1 - t0, 2)}ms`);
   // => 233168
 }

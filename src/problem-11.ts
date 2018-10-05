@@ -1,4 +1,5 @@
 import { performance } from 'perf_hooks';
+import { round } from './round';
 import { max, range, pipe, flatten, map } from "lodash/fp";
 
 export const pEleven = () => {
@@ -72,6 +73,6 @@ export const pEleven = () => {
   ])(grid.concat(transpose(grid)).concat(ascendingDiagonals(grid)).concat(descendingDiagonals(grid)))
   const t1 = performance.now();
 
-  console.log(`11. Result: ${x} Time: ${Math.round(t1 - t0)}ms`);
+  console.log(`11. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
 
 }
