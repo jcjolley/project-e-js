@@ -10,5 +10,3 @@ function* triangularGenerator () {
 }
 
 export const triangular = new LazySeq(triangularGenerator);
-
-console.log(triangular.takeWhile(x => x < 75));
