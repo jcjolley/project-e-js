@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { pipe, toString, split, reverse, isEqual } from 'lodash/fp'
 
-export const pFour = () => {
+export const doProblem = () => {
   const isPalindrome = pipe(
     toString,
     split(''),

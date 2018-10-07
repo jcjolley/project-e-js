@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { range } from "lodash/fp";
 
-export const pFive = () => {
+export const doProblem = () => {
 
   const evenlyDivisibleBy = (n: number, xs: number[]) => {
     return xs.every(x => n % x === 0);

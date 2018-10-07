@@ -3,7 +3,7 @@ import { round } from './round';
 import { primes } from './primes';
 import { sum } from 'lodash/fp';
 
-export const pTen = () => {
+export const doProblem = () => {
   const t0 = performance.now()
   const x = sum(primes.takeWhile(p => p < 2000000));
   const t1 = performance.now()

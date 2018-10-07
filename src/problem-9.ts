@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { sum } from "lodash/fp";
 
-export const pNine = () => {
+export const doProblem = () => {
   const isPythagoreanTriplet = (a: number, b: number, c: number) => {
     return (a * a) + (b * b) === (c * c);
   }

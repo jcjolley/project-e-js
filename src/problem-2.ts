@@ -1,6 +1,6 @@
 import { performance } from 'perf_hooks';
 import { round } from './round';
-export const pTwo = () => {
+export const doProblem = () => {
 
   function* genFib() {
     let x = 0;

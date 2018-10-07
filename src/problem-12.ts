@@ -4,7 +4,7 @@ import { round } from './round';
 import { range, memoize } from 'lodash';
 import { isPrime } from './primes';
 
-export const pTwelve = () => {
+export const doProblem = () => {
     const getNumDivisors = (n: number) => {
         let numDivisors = 1;
         let rootN = Math.ceil(Math.sqrt(n))
@@ -14,11 +14,11 @@ export const pTwelve = () => {
             }
         }
 
-        return numDivisors * 2 ;
+        return numDivisors * 2;
     }
 
     const getFirstTriangularNumberWithOver500Divisors = () => {
-        for(let i = 0, triangleNumber = triangular.nth(1); true; triangleNumber = triangular.nth(++i)) {
+        for (let i = 0, triangleNumber = triangular.nth(1); true; triangleNumber = triangular.nth(++i)) {
             if (triangleNumber % 2 !== 0) {
                 continue;
             }

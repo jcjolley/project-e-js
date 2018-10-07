@@ -1,7 +1,7 @@
 import { performance } from 'perf_hooks';
 import { round } from './round';
 import { primes } from './primes'
-export const pSeven = () => {
+export const doProblem = () => {
   const t0 = performance.now()
   const x = primes.nth(10000) // 0 based
   const t1 = performance.now()

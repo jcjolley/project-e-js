@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { pipe, slice, map, toNumber, reduce, max } from "lodash/fp";
 
-export const pEight = () => {
+export const doProblem = () => {
   const getProdFromSlice = (startIndex: number, endIndex: number, series: string) => {
     return pipe([
       slice(startIndex, endIndex),

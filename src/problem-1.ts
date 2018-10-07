@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { range } from 'lodash/fp';
 import { round } from './round';
 
-export const pOne = () => {
+export const doProblem = () => {
   const t0 = performance.now();
   const x = range(0, 1000)
     .filter(x => [3, 5].some(y => x % y === 0))

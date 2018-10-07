@@ -2,7 +2,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { range } from "lodash/fp";
 
-export const pSix = () => {
+export const doProblem = () => {
   const sumOfSquares = (n) => {
     return range(1, n + 1)
       .map(x => x * x)

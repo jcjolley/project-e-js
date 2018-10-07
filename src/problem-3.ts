@@ -3,7 +3,7 @@ import { round } from './round';
 import { last } from 'lodash/fp';
 import { primes } from './primes';
 
-export const pThree = () => {
+export const doProblem = () => {
   const getLargestPrimeFactor = (n) => {
     const primeFactors = primes.takeWhile(x => x <= Math.sqrt(n));
     return last(primeFactors.filter(x => n % x === 0));

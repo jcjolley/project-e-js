@@ -1,25 +1,21 @@
-import { pOne } from './problem-1';
-import { pEleven } from './problem-11';
-import { pTwo } from './problem-2';
-import { pThree } from './problem-3';
-import { pFour } from './problem-4';
-import { pFive } from './problem-5';
-import { pSix } from './problem-6';
-import { pSeven } from './problem-7';
-import { pEight } from './problem-8';
-import { pNine } from './problem-9';
-import { pTen } from './problem-10';
-import { pTwelve } from './problem-12';
+import fs, { lstat } from 'fs';
+import { slice, pipe, toNumber, last } from 'lodash/fp';
 
-// pOne();
-// pTwo();
-// pThree();
-// pFour();
-// pFive();
-// pSix();
-// pSeven();
-// pEight();
-// pNine();
-// pTen();
-// pEleven();
-pTwelve();
+const fileNameToProblemNumber = pipe(
+  x => x.slice(8),
+  toNumber
+)
+
+const problems: any[] = [];
+const x = fs.readdirSync("./dist")
+  .filter(x => /problem/.test(x))
+  .map(x => x.slice(0, -3))
+  .sort((a, b) => fileNameToProblemNumber(a) - fileNameToProblemNumber(b))
+  .map(x => `problems.push(require('./${x}'))`)
+  .forEach(x => eval(x))
+
+// Run all
+// problems.forEach((x: any) => x.doProblem());
+
+// Run latest
+last(problems).doProblem();
