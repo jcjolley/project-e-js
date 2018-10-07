@@ -4,8 +4,8 @@ export class LazySeq {
   private done;
   private set;
 
-  constructor(generator) {
-    this.generator = generator();
+  constructor(generator, initArgs: any[] = []) {
+    this.generator = generator.apply(null, initArgs);
     this.cache = [];
     this.set = new Set<any>();
     this.done = false;
