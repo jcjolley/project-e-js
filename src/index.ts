@@ -9,6 +9,7 @@ import { pSeven } from './problem-7';
 import { pEight } from './problem-8';
 import { pNine } from './problem-9';
 import { pTen } from './problem-10';
+import { triangular } from './triangular';
 
 pOne();
 pTwo();
@@ -21,3 +22,5 @@ pEight();
 pNine();
 pTen();
 pEleven();
+
+console.log(triangular.takeWhile(x => x < 1000));

@@ -1,0 +1,14 @@
+import { LazySeq } from './LazySeq';
+
+function* triangularGenerator () {
+    let triangular = 1;
+    let i = 2;
+        while (true) {
+            yield triangular;
+            triangular += i++;
+        }
+}
+
+export const triangular = new LazySeq(triangularGenerator);
+
+console.log(triangular.takeWhile(x => x < 75));
