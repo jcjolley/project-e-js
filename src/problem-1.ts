@@ -10,13 +10,13 @@ export const doProblem = () => {
   const transducerFilter = fn => reducer => (acc, val) => fn(val) ? reducer(acc, val) : acc;
   const sumMultiplesOf3And5 = transducerFilter(isMultipleOf3Or5)(sumReducer);
   const tx0 = performance.now();
-  const tx = range(0, 1000000).reduce(sumMultiplesOf3And5);
+  const tx = range(0, 1000).reduce(sumMultiplesOf3And5);
   const tx1 = performance.now();
 
   console.log(`1. Tx Result: ${tx}, Time: ${round(tx1 - tx0, 2)}ms`);
 
   const t0 = performance.now();
-  const x = range(0, 1000000)
+  const x = range(0, 1000)
     .filter(x => [3, 5].some(y => x % y === 0))
     .reduce((acc, x) => acc + x);
   const t1 = performance.now();
