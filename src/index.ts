@@ -1,5 +1,5 @@
 import fs, { lstat } from 'fs';
-import { slice, pipe, toNumber, last } from 'lodash/fp';
+import { slice, pipe, toNumber, last, nth } from 'lodash/fp';
 
 const fileNameToProblemNumber = pipe(
   x => x.slice(8),
@@ -18,4 +18,7 @@ const x = fs.readdirSync("./dist")
 // problems.forEach((x: any) => x.doProblem());
 
 // Run latest
-last(problems).doProblem();
+// last(problems).doProblem();
+
+// Run specific
+nth(0, problems).doProblem();
