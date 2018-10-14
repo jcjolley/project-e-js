@@ -1,6 +1,6 @@
 import { performance } from 'perf_hooks';
 import { round } from './round';
-import { toNumber } from 'lodash/fp';
+import { toNumber, max, sum } from 'lodash/fp';
 
 class Node<T> {
     public value: T;
@@ -33,40 +33,24 @@ export const doProblem = () => {
                     63 66 04 68 89 53 67 30 73 16 69 87 40 31
                     04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 
-    // TODO Modify this to make inverted trees from a leaf up.
-    const getTree = (str) => {
-        const nodes = str.split('\n').map(x => x.trim().split(/\s/g).map(x => new Node(toNumber(x))));
-        const root = nodes[0][0];
-        for (let i = 0; i < nodes.length; i++) {
-            for (let j = 0; j < nodes[i].length; j++) {
-                if (nodes[i + 1]) {
-                    nodes[i][j].left = nodes[i + 1][j];
-                    nodes[i][j].right = nodes[i + 1][j + 1]
-                }
-            }
-        }
-        return root;
+    const findSumOfBestPath = (str) => {
+        const numArray = str.split('\n').map(x => x.trim().split(/\s/g).map(toNumber));
+        return sumBestPath(numArray)
     }
 
-    const findPath = (root: Node<number>) => {
-        let sum = 0;
-        let node = root;
-        let done = false;
-        while (!done) {
-            sum += node.value;
-            if (node.left && node.right) {
-                node = node.left.value > node.right.value ? node.left : node.right;
-            } else {
-                done = true;
-            }
+    const sumBestPath = (numArray: number[][]) => {
+        for (let i = numArray.length - 2; i >= 0; i--) {
+            numArray[i] = sumRow(numArray[i], numArray[i + 1]);
         }
-        return sum;
+        return numArray[0][0];
     }
+
+    const sumRow = (row, nextRow) => row.map((x, i) => sumBest(x, nextRow[i], nextRow[i + 1]));
+    const sumBest = (x, y, z) => x + max([y, z]);
+
     const t0 = performance.now();
-    const root = getTree(input);
-    const x = findPath(root);
+    const x = findSumOfBestPath(input);
     const t1 = performance.now();
 
     console.log(`18. Result: ${x} Time: ${round(t1 - t0, 2)}ms`);
-
 }
