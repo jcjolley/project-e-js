@@ -18,7 +18,7 @@ const x = fs.readdirSync("./dist")
 // problems.forEach((x: any) => x.doProblem());
 
 // Run latest
-// last(problems).doProblem();
+last(problems).doProblem();
 
 // Run specific
-nth(0, problems).doProblem();
+// nth(0, problems).doProblem();
