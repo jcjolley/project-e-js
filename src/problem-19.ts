@@ -6,6 +6,7 @@ import format from 'date-fns/format';
 
 export const doProblem = () => {
     const isLeapYear = (year: number) => year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)
+    const isSunday = (days: number) => days % 7 === 0;
 
     function getFirstDayOfMonth(limit: number) {
         const daysInMonth: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -23,7 +24,6 @@ export const doProblem = () => {
         return dateArray.slice((startYear - 1900) * 12).filter(isSunday).length;
     }
 
-    const isSunday = (days: number) => days % 7 === 0;
 
     const t0 = performance.now();
     const x = countFirstDaysThatAreSundays(1901, 2001);
