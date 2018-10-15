@@ -14,6 +14,7 @@
     "@types/lodash": "^4.14.116",
     "@types/node": "^10.11.4",
     "big-integer": "^1.6.36",
+    "date-fns": "^1.29.0",
     "immutable": "^3.8.2",
     "lodash": "^4.17.11",
     "nodemon": "^1.18.4",
