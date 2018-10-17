@@ -2,20 +2,6 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 import { toNumber, max, sum } from 'lodash/fp';
 
-class Node<T> {
-    public value: T;
-    public left: any = null;
-    public right: any = null;
-
-    constructor(val: T) {
-        this.value = val;
-    }
-    toString() {
-        return `${this.value}`;
-    }
-}
-
-
 export const doProblem = () => {
     const input = ` 75
                     95 64
