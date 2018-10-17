@@ -24,7 +24,6 @@ export const doProblem = () => {
         return dateArray.slice((startYear - 1900) * 12).filter(isSunday).length;
     }
 
-
     const t0 = performance.now();
     const x = countFirstDaysThatAreSundays(1901, 2001);
     const t1 = performance.now();
