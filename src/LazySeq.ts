@@ -46,6 +46,22 @@ export class LazySeq {
     return res;
   }
 
+  find = (predicate) => {
+    let val;
+    for (let i = 0, val = this.nth(i); !predicate(val); i++) {
+      val = this.nth(i);
+    }
+    return val;
+  }
+
+  findIndex = (predicate) => {
+    let i, val;
+    for (i = 0, val = this.nth(i); !predicate(val); i++) {
+      val = this.nth(i);
+    }
+    return i - 1;
+  }
+
   has = (x: any) => {
     return this.set.has(x);
   }
