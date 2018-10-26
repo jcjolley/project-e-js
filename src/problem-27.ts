@@ -4,15 +4,18 @@ import { primes, isPrime } from './primes';
 
 export const doProblem = () => {
   const brute = () => {
+    const posBs = primes.takeWhile(x => x < 1000);
+    const bs = posBs.map(x => x * -1).concat(posBs);
+
     let ans = { a: -999, b: -999, n: 0 };
-    for (let a = -999; a < 1000; a++) {
-      for (let b = -999; b < 1000; b++) {
+    for (let a = -999; a < 1000; a += 2) {
+      for (let i = 0; i < bs.length; i++) {
         let n = 0;
-        while (isPrime((n * n) + (a * n) + b)) {
+        while (isPrime((n * n) + (a * n) + bs[i])) {
           n++;
         }
         if (n > ans.n) {
-          ans = { a, b, n }
+          ans = { a, b: bs[i], n }
         }
       }
     }
