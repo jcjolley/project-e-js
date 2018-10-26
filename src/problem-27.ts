@@ -5,12 +5,11 @@ import { primes, isPrime } from './primes';
 export const doProblem = () => {
   const brute = () => {
     // There are no negative primes
-    const bs = primes.takeWhile(x => x < 1000);
+    const bs = primes.takeWhile(x => x < 1000); // b must be prime b/c if n === 0, 0 + 0 + b = must be a prime
 
     let ans = { a: -999, b: -999, n: 0 };
     for (let i = 0; i < bs.length; i++) {
-      let min = 1 - bs[i];
-      for (let a = min % 2 === 0 ? min + 1 : min; a < 1000; a += 2) {
+      for (let a = 2 - bs[i]; a < 1000; a += 2) { // a must be odd, and a > 1 - b
         let n = 0;
         while (isPrime((n * n) + (a * n) + bs[i])) {
           n++;
