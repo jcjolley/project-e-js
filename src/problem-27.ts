@@ -9,7 +9,7 @@ export const doProblem = () => {
 
     let ans = { a: -999, b: -999, n: 0 };
     for (let i = 0; i < bs.length; i++) {
-      for (let a = 2 - bs[i]; a < 1000; a += 2) { // a must be odd, and a > 1 - b
+      for (let a = 2 - bs[i]; a < 1000; a += 2) { // a must be odd (otherwise half of results would be even), and a > 1 - b (n = 1, 1 + a + b >=2 b/c b must be prime)
         let n = 0;
         while (isPrime((n * n) + (a * n) + bs[i])) {
           n++;
