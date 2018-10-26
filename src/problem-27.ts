@@ -4,12 +4,13 @@ import { primes, isPrime } from './primes';
 
 export const doProblem = () => {
   const brute = () => {
-    const posBs = primes.takeWhile(x => x < 1000);
-    const bs = posBs.map(x => x * -1).concat(posBs);
+    // There are no negative primes
+    const bs = primes.takeWhile(x => x < 1000);
 
     let ans = { a: -999, b: -999, n: 0 };
-    for (let a = -999; a < 1000; a += 2) {
-      for (let i = 0; i < bs.length; i++) {
+    for (let i = 0; i < bs.length; i++) {
+      let min = 1 - bs[i];
+      for (let a = min % 2 === 0 ? min + 1 : min; a < 1000; a += 2) {
         let n = 0;
         while (isPrime((n * n) + (a * n) + bs[i])) {
           n++;
