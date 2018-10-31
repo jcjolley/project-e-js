@@ -22,22 +22,17 @@ export const doProblem = () => {
     return 0;
   }
 
-
   const findLargestPalindromeWithTwoDigitFactors = (n) => {
     let value, done, found;
     for (let block = 900; block >= 100 && !found; block -= 100) {
       let palindromes = genPalindromes();
       while (!found && !done) {
-        let x = palindromes.next();
-        value = x.value;
-        done = x.done;
+        ({ value, done } = palindromes.next());
         found = findLargestTwoDigitFactors(value, block)
       }
     }
     return [found, value];
   }
-
-
 
   const t0 = performance.now();
   const x = findLargestPalindromeWithTwoDigitFactors(1000000);
