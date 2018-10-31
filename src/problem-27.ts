@@ -4,11 +4,8 @@ import { primes, isPrime } from './primes';
 
 export const doProblem = () => {
   const brute = () => {
-    // There are no negative primes
-    const bs = primes.takeWhile(x => x < 1000); // b must be prime b/c if n === 0, 0 + 0 + b = must be a prime
-
-    let ans = { a: -999, b: -999, n: 0 };
-    for (const b of bs) {
+    let ans = {};
+    for (const b of primes.takeWhile(x => x < 1000)) { // b must be prime b/c (n = 0, 0 + 0 + b = b)
       for (let a = 2 - b; a < 1000; a += 2) { // a must be odd (otherwise half of results would be even), and a > 1 - b (n = 1, 1 + a + b >=2 b/c b must be prime)
         let n = 0;
         while (isPrime((n * n) + (a * n) + b)) {
