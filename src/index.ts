@@ -21,4 +21,4 @@ const x = fs.readdirSync("./dist")
 last(problems).doProblem();
 
 // Run specific
-// nth(1, problems).doProblem();
+nth(3, problems).doProblem();
