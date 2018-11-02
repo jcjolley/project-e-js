@@ -3,7 +3,7 @@ import { performance } from 'perf_hooks';
 import { round } from './round';
 
 export const doProblem = () => {
-  // n is the n'th square
+  // n is the nth square
   const topRight = (n) => Math.pow(2 * n - 1, 2);
   const topLeft = (n) => 4 * n * n - 6 * n + 3
   const bottomRight = (n) => 4 * n * n - 10 * n + 7
