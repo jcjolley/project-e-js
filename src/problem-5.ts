@@ -10,7 +10,7 @@ export const doProblem = () => {
 
   const findEvenlyDivisibleByOneThroughTwenty = () => {
     let n = 40;
-    let divisors = range(2, 21);
+    let divisors = range(11, 21);
     while (!evenlyDivisibleBy(n, divisors)) {
       n += 20;
     }

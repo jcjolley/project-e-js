@@ -1,5 +1,6 @@
 import { performance } from 'perf_hooks';
 import { round } from './round';
+import { toNumber } from 'lodash/fp';
 
 export const doProblem = () => {
   const findLargestTwoDigitFactors = (n, block) => {
@@ -13,12 +14,9 @@ export const doProblem = () => {
   }
 
   function* genPalindromes() {
-    let n = 999;
-    while (n > 0) {
-      yield parseInt(`${n}${n.toString().split('').reverse().join('')}`, 10);
-      n--;
+    for (let n = 999; n > 0; n--) {
+      yield toNumber(`${n}${n.toString().split('').reverse().join('')}`);
     }
-
     return 0;
   }
 
