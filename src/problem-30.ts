@@ -1,10 +1,11 @@
 import { range, sum } from 'lodash/fp';
 import { performance } from 'perf_hooks';
 import { round } from './round';
+import { toDigits } from './general-utils';
 export const doProblem = () => {
 
   const to5th = x => Math.pow(x, 5);
-  const sumDigitsTo5th = x => x.toString().split('').map(to5th).reduce((sum, y) => sum + y);
+  const sumDigitsTo5th = x => toDigits(x).map(to5th).reduce((sum, y) => sum + y);
   const findLimit = (x = 1) => {
     if (x > x.toString().length * to5th(9)) {
       return x;
