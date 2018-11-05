@@ -4,10 +4,10 @@ import { round } from './round';
 
 export const doProblem = () => {
   // n is the nth square
-  const topRight = (n) => Math.pow(2 * n - 1, 2);
-  const topLeft = (n) => 4 * n * n - 6 * n + 3
-  const bottomRight = (n) => 4 * n * n - 10 * n + 7
-  const bottomLeft = (n) => 4 * n * n - 8 * n + 5
+  const topRight = n => Math.pow(2 * n - 1, 2);
+  const topLeft = n => 4 * n * n - 6 * n + 3
+  const bottomRight = n => 4 * n * n - 10 * n + 7
+  const bottomLeft = n => 4 * n * n - 8 * n + 5
   const corners = [topRight, topLeft, bottomRight, bottomLeft];
 
   const through = (fns, args) => fns.map(fn => fn.call(null, args));
